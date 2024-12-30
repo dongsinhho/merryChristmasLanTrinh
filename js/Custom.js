@@ -195,12 +195,12 @@ $(document).ready(function() {
                     $(".message").typed({
                         strings: [
                         "<<< Merry Christmas >>>",
-                        "Chúc Diệp có một mùa giáng sinh an lành và ấm áp bên người thân và bạn bè :) Nghe nhạc zui zẻ nha!!!",
+                        "Chúc bé iu Lan Trinh một mùa giáng sinh và năm mới an lành, hạnh phúc nhó :) Iu em <3 !!!",
                         ],
-                        typeSpeed: 250,
-                        startDelay: 500,
+                        typeSpeed: 100,
+                        startDelay: 200,
                         backSpeed: 50,
-                        backDelay: 500,
+                        backDelay: 200,
                         loop: true,
                         contentType: 'html',
                         showCursor: false
