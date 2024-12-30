@@ -1,3 +1,4 @@
+let played = false;
 var sound = new Howl({
     urls: ['song/background.mp3'],
     loop: true
@@ -177,11 +178,15 @@ $(document).ready(function() {
 
     // Bắt sự kiện nhấn tuần lộc
     $("#reindeer").click(function() {
-        var sound = new Howl({
-            urls: ['song/background.mp3'],
-            loop: true
-          });
-        sound.play();
+        if (played == false) { 
+            var sound = new Howl({
+                urls: ['song/background.mp3'],
+                loop: true
+              });
+            sound.play();
+            played = true;
+        }
+
         // Chưa mở thư
         if (bShowLetter == false)
         {
