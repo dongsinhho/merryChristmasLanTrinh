@@ -1,8 +1,8 @@
-let played = false;
-var sound = new Howl({
-    urls: ['song/background.mp3'],
-    loop: true
-  });
+let isPlaying = false;
+// var sound = new Howl({
+//     urls: ['song/background.mp3'],
+//     loop: true
+//   });
 
 function loading() {
     $('body').css('height', $(window).height());
@@ -175,19 +175,28 @@ $(document).ready(function() {
     scrlsts();
     snowEffectBind();
     showSantaClaus();
-
+    var sound = new Howl({
+        urls: ['song/background.mp3'],
+        loop: true,
+        onplay: function () {
+            isPlaying = true;
+            console.log('Sound is playing');
+        },
+        onend: function () {
+            isPlaying = false;
+            console.log('Sound has ended');
+        },
+        onstop: function () {
+            isPlaying = false;
+            console.log('Sound was stopped');
+        }
+      });
     // Bắt sự kiện nhấn tuần lộc
     $("#reindeer").click(function() {
-        if (played == false) { 
-            var sound = new Howl({
-                urls: ['song/background.mp3'],
-                loop: true
-              });
-            sound.play();
-            played = true;
-        }
-
         // Chưa mở thư
+        if (!isPlaying) {
+            sound.play();
+        }
         if (bShowLetter == false)
         {
             $('#reindeer').animate({
@@ -208,7 +217,7 @@ $(document).ready(function() {
                         "Chúc bé iu Lan Trinh một mùa giáng sinh và năm mới an lành, hạnh phúc nhó :) Iu em <3 !!!",
                         ],
                         typeSpeed: 100,
-                        startDelay: 200,
+                        startDelay: 400,
                         backSpeed: 50,
                         backDelay: 200,
                         loop: true,
