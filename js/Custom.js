@@ -15,7 +15,7 @@ function loadingVisible() {
         'overflow': 'visible',
         'height': '100%'
     });
-    sound.play();
+    //sound.play();
 }
 
 /* Scroll Title Begin */
@@ -177,6 +177,11 @@ $(document).ready(function() {
 
     // Bắt sự kiện nhấn tuần lộc
     $("#reindeer").click(function() {
+        var sound = new Howl({
+            urls: ['song/background.mp3'],
+            loop: true
+          });
+        sound.play();
         // Chưa mở thư
         if (bShowLetter == false)
         {
